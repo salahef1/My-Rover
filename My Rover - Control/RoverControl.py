@@ -99,18 +99,26 @@ class DistanceSensor:
     def getDistance(self):
         global startTime
         global endTime
+        global waitTime
         startTime = 0
         endTime = 0
+        waitTime =0
         self.pi.write(self.TRIG, 1)
         time.sleep(0.2)
         self.pi.write(self.TRIG, 0)
 
+        waitTime = time.time()
         while self.pi.read(self.ECHO) == False:
             startTime = time.time()
-
+            if(startTime-waitTime > 0.45):
+                return 0
+            
+        waitTime = time.time()
         while self.pi.read(self.ECHO) == True:
             endTime = time.time()
-
+            if(endTime-waitTime > 0.45):
+                return 0
+            
         sig_time = endTime - startTime
         #Distance in CM
         distance = sig_time * 17150

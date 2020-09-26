@@ -7,6 +7,7 @@ import pigpio
 pi = pigpio.pi()
 CameraServo = RoverControl.CameraServo(pi, 13, 12)
 RoverMotors = RoverControl.RoverMotors(pi, 14, 18, 23, 24)
+DistanceSensor = RoverControl.DistanceSensor(pi, 26, 19)
 
 HOST = ''
 PORT = 21567
@@ -45,8 +46,14 @@ while True:
             print ('Reset Position')
         #Rover
         elif data == 'rover_UP':
-            RoverMotors.moveUP()
-            print ('UP')
+            distance = DistanceSensor.getDistance()
+            print('Distance: {} centimeters'.format(distance))
+            if(distance >= 30):
+                RoverMotors.moveUP()
+                print ('UP')
+            else:
+                RoverMotors.stop()
+                print ('Reset Position')
         elif data == 'rover_Left':
             RoverMotors.moveLeft()
             print ('Left')
@@ -60,11 +67,10 @@ while True:
             RoverMotors.stop()
             print ('Reset Position')
         #General
-        elif data == 'StopGPIO':
+        elif data == 'StopServer':
+            RoverMotors.stop()
             CameraServo.reset()
             pi.stop()
-            print ('Stoped GPIO')
-        elif data == 'StopServer':
             closed = True
         else:
             break
