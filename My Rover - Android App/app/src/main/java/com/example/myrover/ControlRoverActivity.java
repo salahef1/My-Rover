@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.webkit.WebView;
 import android.widget.TextView;
 
@@ -26,6 +27,7 @@ public class ControlRoverActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_control_rover);
 
         wifiModuleIP = MainActivity.wifiModuleIP;
@@ -77,7 +79,7 @@ public class ControlRoverActivity extends AppCompatActivity {
                     moveDirection("rover_Stop");
                 }
             }
-        }, 1000);
+        }, 600);
     }
 
     public void moveDirection (String direction) {
@@ -88,12 +90,6 @@ public class ControlRoverActivity extends AppCompatActivity {
 
     public void resetPosition (View view) {
         CMD = "camera_ResetPos";
-        Socket_AsyncTask cmd_servo = new Socket_AsyncTask();
-        cmd_servo.execute();
-    }
-
-    public void stopGPIO (View view) {
-        CMD = "StopGPIO";
         Socket_AsyncTask cmd_servo = new Socket_AsyncTask();
         cmd_servo.execute();
     }
