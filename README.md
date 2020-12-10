@@ -2,7 +2,7 @@
 
 **My Rover** is a Project I made in order to control a robot powered by a Raspberry Pi 3b+ using an Android App over Wifi.
 
-### What you will need
+## What you will need
 
 Hardware :
   - Raspberry Pi 3b+
@@ -28,7 +28,7 @@ $ sudo apt-get update
 $ sudo apt-get install pigpio python-pigpio python3-pigpio
 ```
 
-### Setup
+## Setup
 
 Hardware :
   - Assemble your robot chassis and motors by following the instructions that came with your chassis.
