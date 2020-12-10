@@ -4,7 +4,7 @@
 
 ## What you will need
 
-Hardware :
+**Hardware :**
   - Raspberry Pi 3b+
   - L298N Drive Controller Board Dual H-Bridge DC Module
   - HC-SR04 ultrasonic sensor
@@ -15,7 +15,7 @@ Hardware :
   - PowerBank (To power the Raspberry Pi)
   - Batteries + batteries holder (To Power the motors)
   
-Software :
+**Software :**
    - Android Studio
    - Motion (on your Raspberry Pi)
 ```sh
@@ -30,7 +30,7 @@ $ sudo apt-get install pigpio python-pigpio python3-pigpio
 
 ## Setup
 
-Hardware :
+**Hardware :**
   - Assemble your robot chassis and motors by following the instructions that came with your chassis.
   - Wire up the motors to the L298N Drive and to the Raspberry Pi, following the first part of this tutorial 
   - Wire up the HC-SR04 sensor to the Rasberry Pi (don't forget to add the resistors to your circuit) following the first part of this tutorial
@@ -38,7 +38,7 @@ Hardware :
   - Wire the motors to the Raspberry Pi
   - Plug your camera to the Raspberry Pi's camera port
   
-Software :
+**Software :**
   - Open the project in `My-Rover/My Rover - Android App/` inside Android Studio and run the App
   - Copy the files inside  `My-Rover/My Rover - Control/` over to your Raspberry Pi
   - Run the script `StartRover.sh` (it will start a python server)
@@ -47,4 +47,4 @@ $ sudo ./StartRover.sh
 ```
   - Enter the Raspberry Pi's IP Adress inside the Android App
   
-  ***AND VOILA***
+  ***ET VOILÀ***
