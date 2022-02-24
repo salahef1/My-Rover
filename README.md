@@ -1,6 +1,6 @@
 # My Rover
 
-**My Rover** allows you to control a robot powered by Raspberry Pi 3b+ using an Android App via Wifi.
+**My Rover** allows users to control a robot powered by Raspberry Pi 3b+ using an Android App via Wifi.
 
 ## What you will need
 
